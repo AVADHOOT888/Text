@@ -1,0 +1,37 @@
+{% extends "Textutils/base.html" %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<form method="POST" action="{% url "result" %}">
+ {% csrf_token %}
+
+<div class="container">
+<div class="mb-3">
+  <label for="Text" class="form-label"><h1>Enter your text here and let textutils do the magic :</h1></label>
+  <textarea class="form-control" id="Text" rows="3" name='text'></textarea>
+</div>
+
+<input type="checkbox" name="removepunc"> Remove Punctuations<br>
+
+<input type="checkbox" name="upper"> UpperCase<br>
+
+<input type="checkbox" name="removespace"> Remove Extra Spaces<br>
+
+<input type="checkbox" name="lower"> LowerCase<br>
+
+
+
+
+
+<div class='mb-3'>
+  <button type="submit" class="btn btn-primary">Analyze Text</button>
+  </div>
+</form>
+</div>
+
+
+
+{% endblock %}
